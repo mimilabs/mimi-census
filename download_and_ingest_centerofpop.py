@@ -96,12 +96,6 @@ for filepath in Path(f"{path}/{tablename}").glob("*.txt"):
 
 # MAGIC %sql
 # MAGIC
-# MAGIC COMMENT ON TABLE mimi_ws_1.census.centerofpop_bg IS '# The Center of Population for each Census Block Group
-# MAGIC
-# MAGIC The Center of Population for Census Block Groups is a table containing the latitude and longitude coordinates for the "center of population" for each census block group."
-# MAGIC
-# MAGIC The table also contains the FIPS breakdowns for state, county, and census tract. 
-# MAGIC ';
 # MAGIC
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_bg ALTER COLUMN statefp COMMENT 'STATEFP: 2-character state FIPS code';
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_bg ALTER COLUMN countyfp COMMENT 'COUNTYFP:  3-character county FIPS code';
@@ -119,14 +113,7 @@ for filepath in Path(f"{path}/{tablename}").glob("*.txt"):
 
 # MAGIC %sql
 # MAGIC
-# MAGIC COMMENT ON TABLE mimi_ws_1.census.centerofpop_co IS '# The Center of Population for each County
 # MAGIC
-# MAGIC The Center of Population for each County is a table containing the latitude and longitude coordinates for the "center of population" for each county."
-# MAGIC
-# MAGIC The table also contains the FIPS breakdowns for state, county; also contains the names of the state and county. 
-# MAGIC
-# MAGIC This table is useful for visualizing county-level statistics on a map.
-# MAGIC ';
 # MAGIC
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_co ALTER COLUMN statefp COMMENT 'STATEFP: 2-character state FIPS code';
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_co ALTER COLUMN countyfp COMMENT 'COUNTYFP:  3-character county FIPS code';
@@ -144,14 +131,7 @@ for filepath in Path(f"{path}/{tablename}").glob("*.txt"):
 
 # MAGIC %sql
 # MAGIC
-# MAGIC COMMENT ON TABLE mimi_ws_1.census.centerofpop_st IS '# The Center of Population for each State
 # MAGIC
-# MAGIC The Center of Population for each State is a table containing the latitude and longitude coordinates for the "center of population" for each state."
-# MAGIC
-# MAGIC The table contains the name of the state as well.
-# MAGIC
-# MAGIC This table is useful for visualizing state-level statistics on a map.
-# MAGIC ';
 # MAGIC
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_st ALTER COLUMN statefp COMMENT 'STATEFP: 2-character state FIPS code';
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_st ALTER COLUMN stname COMMENT 'STNAME:  state name';
@@ -166,14 +146,7 @@ for filepath in Path(f"{path}/{tablename}").glob("*.txt"):
 
 # MAGIC %sql
 # MAGIC
-# MAGIC COMMENT ON TABLE mimi_ws_1.census.centerofpop_tr IS '# The Center of Population for each Census Tract
 # MAGIC
-# MAGIC The Center of Population for each Census Tract is a table containing the latitude and longitude coordinates for the "center of population" for each census tract."
-# MAGIC
-# MAGIC The Center of Population for each Census Tract a table containing the latitude and longitude coordinates for the "center of population" for each census tract."
-# MAGIC
-# MAGIC The table also contains the FIPS breakdowns for state, and county. 
-# MAGIC ';
 # MAGIC
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_tr ALTER COLUMN statefp COMMENT 'STATEFP: 2-character state FIPS code';
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_tr ALTER COLUMN countyfp COMMENT 'COUNTYFP:  3-character county FIPS code';
@@ -190,12 +163,7 @@ for filepath in Path(f"{path}/{tablename}").glob("*.txt"):
 
 # MAGIC %sql
 # MAGIC
-# MAGIC COMMENT ON TABLE mimi_ws_1.census.centerofpop_us IS '# The Center of Population of the US
 # MAGIC
-# MAGIC The Center of Population for the US is a table containing the latitude and longitude coordinates for the "center of population" of the US."
-# MAGIC
-# MAGIC The information is useful for centering a map visualization. 
-# MAGIC ';
 # MAGIC
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_us ALTER COLUMN population COMMENT 'POPULATION:  2020 Census population tabulated for the block group';
 # MAGIC ALTER TABLE mimi_ws_1.census.centerofpop_us ALTER COLUMN latitude COMMENT 'LATITUDE:  latitude coordinate for the center of population for the block group';

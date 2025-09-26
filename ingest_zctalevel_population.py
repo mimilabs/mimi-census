@@ -8,7 +8,7 @@
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC -- DROP TABLE IF EXISTS mimi_ws_1.census.pop_est_zcta
+# MAGIC --DROP TABLE IF EXISTS mimi_ws_1.census.pop_est_zcta
 
 # COMMAND ----------
 
@@ -26,7 +26,7 @@ with open(f'{path}{filename}', 'r') as fp:
         num = int(row[2])
         data.append([row[0], name, num, 2020])
 pdf = pd.DataFrame(data, columns=["geo_id", "zcta", "tot_population_est", "year"])
-pdf['mimi_src_file_date'] = '2020-12-31'
+pdf['mimi_src_file_date'] = parse('2020-12-31').date()
 pdf['mimi_src_file_name'] = filename
 pdf['mimi_dlt_load_date'] = datetime.today().date()
 df = spark.createDataFrame(pdf)
@@ -36,19 +36,6 @@ df = spark.createDataFrame(pdf)
     .option('mergeSchema', 'true')
     .saveAsTable("mimi_ws_1.census.pop_est_zcta"))    
 
-
-# COMMAND ----------
-
-# MAGIC %sql
-# MAGIC
-# MAGIC COMMENT ON TABLE mimi_ws_1.census.pop_est_zcta IS '# Population Size by ZCTA
-# MAGIC
-# MAGIC The file is manually downloaded from the Census data exploration tool.
-# MAGIC The URL is [https://data.census.gov/table/DECENNIALDHC2020.P1?q=All%205-digit%20ZIP%20Code%20Tabulation%20Areas%20within%20United%20States%20Populations%20and%20People](https://data.census.gov/table/DECENNIALDHC2020.P1?q=All%205-digit%20ZIP%20Code%20Tabulation%20Areas%20within%20United%20States%20Populations%20and%20People).
-# MAGIC
-# MAGIC Note that ZCTA is slightly different from the USPS ZIP code. 
-# MAGIC
-# MAGIC The data is currently based on the 2020 ACS data.';
 
 # COMMAND ----------
 
